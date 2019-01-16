@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/shop</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">123</property>
+        
+        <!-- 配置c3p0连接池 -->
+
+
+<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+
+<property name="hibernate.c3p0.max_size">20</property>
+
+<property name="hibernate.c3p0.min_size">10</property>
+
+<!-- 配置事务的隔离级别 -->
+
+<property name="hibernate.connection.isolation">4</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- 开启二级缓存 -->
+
+
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+
+<!-- 确定二级缓存提供商 -->
+
+
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+<!-- 开启三级缓存（查询缓存） -->
+
+
+<property name="hibernate.cache.use_query_cache">true</property>
+        <mapping resource="entity/User.hbm.xml"/>
+        <mapping resource="entity/GoodsInfo.hbm.xml"/>
+         <mapping resource="entity/GoodsType.hbm.xml"/>
+          <mapping resource="entity/Order.hbm.xml"/>
+          <mapping resource="entity/OrderDetail.hbm.xml"/>
+           <mapping resource="entity/Address.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration>

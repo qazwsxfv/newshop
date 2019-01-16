@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="entity">
+	<!-- package:实体类所在的包名 -->
+	<class name="GoodsInfo" table="t_goods_info">
+		<id name="id" column="id">
+			<!-- 主键自增长策略 -->
+			<generator class="native" />
+		</id>
+		<property name="goods_name" column="goods_name"/>
+		<property name="goods_description"  column="goods_description"/>
+		<property name="goods_pic" column="goods_pic"/>
+		<property name="goods_price" column="goods_price"/>
+		<property name="goods_stock" column="goods_stock" />
+		<property name="goods_price_off" column="goods_price_off"/>
+		<property name="goods_discount"  column="goods_discount"/>
+		<property name="goods_parentid" column="goods_parentid"/>
+		<property name="goods_fatherid" column="goods_fatherid"/>	
+	</class>
+</hibernate-mapping>

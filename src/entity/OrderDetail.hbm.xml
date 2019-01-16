@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="entity">
+	<!-- package:实体类所在的包名 -->
+	<class name="OrderDetail" table="t_order_detail">
+		<id name="id" column="id">
+			<!-- 主键自增长策略 -->
+			<generator class="native" />
+		</id>
+		<property name="o_orderid" column="o_orderid"/>
+		<property name="goodsid" column="goodsid"/>
+		<property name="goodsname"  column="goodsname"/>
+		<property name="goodsprice" column="goodsprice"/>
+		<property name="goods_description"  column="goods_description"/>	
+		<property name="goodsnum" column="goodsnum"/>
+		<property name="goodspic"  column="goodspic"/>
+		<property name="goods_total_price" column="goods_total_price" />
+		<property name="goods_date" column="goods_date"/>
+	</class>
+</hibernate-mapping>
